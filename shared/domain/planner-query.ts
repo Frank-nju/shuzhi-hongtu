@@ -13,7 +13,24 @@ export const plannerDefaults = (): PlannerCriteria => ({
 });
 
 type SearchInput = Record<string, string | string[] | undefined>;
-const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] : value;
+
+export function decodeQueryValue(value: string | undefined) {
+  if (!value) return value;
+  let decoded = value;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const next = decodeURIComponent(decoded);
+      if (next === decoded) break;
+      decoded = next;
+    } catch {
+      break;
+    }
+  }
+  return decoded;
+}
+
+const first = (value: string | string[] | undefined) =>
+  decodeQueryValue(Array.isArray(value) ? value[0] : value);
 
 export function parsePlannerCriteria(input: SearchInput): PlannerCriteria {
   const defaults = plannerDefaults();

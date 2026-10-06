@@ -14,7 +14,7 @@
 .history-route-summary > view > text:nth-child(2) { margin-top: 7rpx; font-family: "Songti SC", STSong, serif; font-size: 29rpx; font-weight: 700; }
 .history-route-summary > view > text:nth-child(3) { margin-top: 12rpx; color: rgba(255,248,235,.66); font-size: 19rpx; line-height: 1.65; }
 .history-route-summary > view > view { margin-top: 15rpx; display: flex; gap: 10rpx; color: #d9ae6f; font-size: 17rpx; }
-.history-route-summary > button { width: 100%; height: 68rpx; color: #5b1117; background: #d6a45b; font-size: 20rpx; }
+.history-return-button { width: 100%; height: 68rpx; color: #5b1117; background: #d6a45b; font-size: 20rpx; }
 .routes-results { padding: 42rpx 28rpx 48rpx; }
 .history-route-summary + .routes-results { padding-top: 8rpx; }
 .results-kicker { display: block; margin-bottom: 28rpx; color: #851f25; font-size: 22rpx; font-weight: 600; letter-spacing: 3rpx; }
@@ -51,3 +51,122 @@
 .plan-saved-button { color: #75171d; background: #eadfce; }
 .plan-open-button { padding: 0 24rpx; flex: 1; display: flex; align-items: center; justify-content: space-between; color: #fff8eb; background: #75171d; }
 .plan-open-button text { color: #d9ae6f; }
+
+/* Ferrari glass system */
+.routes-page {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(218, 41, 28, 0.08), transparent 27%),
+    linear-gradient(180deg, #fffaf7, #ffffff 42%, #f9f2ee);
+}
+
+.routes-hero {
+  margin: 20rpx 20rpx 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(255, 216, 116, 0.2), transparent 28%),
+    linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 44rpx;
+  box-shadow: 0 28rpx 72rpx rgba(126, 28, 18, 0.18);
+}
+
+.routes-hero > text:first-child {
+  color: #ffe7a2;
+  font-weight: 700;
+}
+
+.routes-hero > text:nth-child(2) {
+  font-weight: 900;
+}
+
+.criteria-summary text {
+  color: #fff6e8;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.2);
+  border-radius: 999rpx;
+}
+
+.replan-button {
+  min-height: 58rpx;
+  padding: 0 20rpx;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.28);
+  border-radius: 999rpx;
+}
+
+.history-route-summary,
+.plan-card,
+.routes-empty {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.08), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.13);
+  border-radius: 36rpx;
+  box-shadow: 0 22rpx 58rpx rgba(100, 32, 20, 0.11);
+  backdrop-filter: blur(16rpx) saturate(145%);
+}
+
+.history-route-summary {
+  border-left: 1rpx solid rgba(218, 41, 28, 0.13);
+}
+
+.history-route-summary > text,
+.history-route-summary > view > text:first-child,
+.results-kicker,
+.plan-index,
+.plan-angle,
+.day-label {
+  color: #da291c;
+}
+
+.history-route-summary > view > text:nth-child(3),
+.routes-empty text:last-child,
+.plan-reason {
+  color: #6d5d58;
+}
+
+.history-route-summary > view > view {
+  color: #a71911;
+}
+
+.history-return-button,
+.plan-open-button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-radius: 999rpx;
+  box-shadow: 0 14rpx 32rpx rgba(218, 41, 28, 0.2);
+}
+
+.plan-score {
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.065);
+  border-color: rgba(218, 41, 28, 0.45);
+}
+
+.plan-days,
+.plan-card-actions {
+  border-color: rgba(218, 41, 28, 0.13);
+}
+
+.day-stop > text {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+}
+
+.plan-save-button {
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.06);
+  border-color: rgba(218, 41, 28, 0.2);
+  border-radius: 999rpx;
+}
+
+.plan-saved-button {
+  color: #78615a;
+  background: #f2e8e4;
+}
+
+.plan-open-button text {
+  color: rgba(255, 255, 255, 0.76);
+}

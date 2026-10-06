@@ -67,3 +67,166 @@
 .source-link text:first-child { color: #b77f3f; font-family: Georgia, serif; }
 .source-link text:nth-child(2) { flex: 1; font-size: 20rpx; line-height: 1.5; }
 .source-link text:last-child { color: #851f25; font-size: 17rpx; }
+
+/* Ferrari glass system */
+.history-page {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(218, 41, 28, 0.08), transparent 27%),
+    linear-gradient(180deg, #fffaf7, #ffffff 42%, #f9f2ee);
+}
+
+.history-hero {
+  margin: 20rpx 20rpx 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(255, 216, 116, 0.2), transparent 28%),
+    linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 44rpx;
+  box-shadow: 0 28rpx 72rpx rgba(126, 28, 18, 0.18);
+}
+
+.history-hero text:first-child {
+  color: #ffe7a2;
+  font-weight: 700;
+}
+
+.history-hero text:nth-child(2) {
+  font-weight: 900;
+}
+
+.history-hero text:last-child {
+  color: rgba(255, 246, 232, 0.86);
+}
+
+.history-tab {
+  color: #51423d;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.82));
+  border: 1rpx solid rgba(218, 41, 28, 0.11);
+  border-radius: 26rpx;
+  box-shadow: 0 16rpx 38rpx rgba(100, 32, 20, 0.1);
+}
+
+.history-tab text:first-child {
+  color: #da291c;
+}
+
+.history-tab-active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-color: transparent;
+  border-bottom: 0;
+  box-shadow: 0 16rpx 38rpx rgba(218, 41, 28, 0.2);
+}
+
+.history-tab-active text:first-child,
+.history-tab-active text:nth-child(2),
+.history-tab-active text:last-child {
+  color: #ffffff;
+}
+
+.history-chapter-head,
+.history-relative-map,
+.history-section,
+.history-sources {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.07), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.12);
+  border-radius: 34rpx;
+  box-shadow: 0 20rpx 52rpx rgba(100, 32, 20, 0.1);
+  backdrop-filter: blur(16rpx) saturate(145%);
+}
+
+.history-chapter-head {
+  border-left: 1rpx solid rgba(218, 41, 28, 0.12);
+}
+
+.history-chapter-head > text:first-child,
+.history-section-title text:first-child,
+.history-relative-map > view text:first-child,
+.event-item > text,
+.source-link text:first-child,
+.source-link text:last-child {
+  color: #da291c;
+}
+
+.history-chapter-head > text:nth-child(2),
+.history-section-title text:last-child {
+  color: #1b1716;
+  font-weight: 900;
+}
+
+.history-chapter-head > text:nth-child(3),
+.history-chapter-head > text:nth-child(4) {
+  color: #6d5d58;
+}
+
+.history-chapter-head > view {
+  background: rgba(218, 41, 28, 0.055);
+  border: 1rpx solid rgba(218, 41, 28, 0.1);
+  border-radius: 22rpx;
+}
+
+.history-chapter-head > view text:first-child {
+  color: #7f211b;
+}
+
+.history-chapter-head > view text:last-child {
+  color: #8b756e;
+}
+
+.history-plan-action {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-radius: 999rpx;
+  box-shadow: 0 14rpx 32rpx rgba(218, 41, 28, 0.2);
+}
+
+.history-artwork-panel {
+  border-radius: 34rpx;
+  box-shadow: 0 22rpx 56rpx rgba(100, 32, 20, 0.13);
+}
+
+.history-artwork-panel text:first-child {
+  color: #ffe7a2;
+}
+
+.history-relative-map > view {
+  color: #1b1716;
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1rpx solid rgba(218, 41, 28, 0.11);
+}
+
+.history-relative-map > view text:last-child {
+  color: #1b1716;
+  font-weight: 900;
+}
+
+.history-map-quote {
+  color: #7f211b;
+  background: rgba(218, 41, 28, 0.055);
+  border-radius: 22rpx;
+}
+
+.history-map-quote text:last-child {
+  color: #8b756e;
+}
+
+.event-item + .event-item,
+.history-qa-item > text {
+  border-color: rgba(218, 41, 28, 0.11);
+}
+
+.history-featured-card,
+.history-qa-item,
+.source-link {
+  background: rgba(218, 41, 28, 0.045);
+  border: 1rpx solid rgba(218, 41, 28, 0.09);
+  border-radius: 24rpx;
+}
+
+.history-qa-item > view text:last-child {
+  color: #da291c;
+}

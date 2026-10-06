@@ -1,5 +1,6 @@
 import type { Spot } from '@shared/domain'
 import { JIANGXI_COUNTIES } from '../../../app/jiangxi-counties'
+import { toWechatMapPoint } from './map-coordinates'
 
 const JIANGXI_BOUNDS = {
   minLng: 113.45,
@@ -12,7 +13,7 @@ const JIANGXI_BOUNDS = {
 
 type GeoPoint = { latitude: number; longitude: number }
 
-const svgPointToGeo = (x: number, y: number): GeoPoint => ({
+const svgPointToGeo = (x: number, y: number): GeoPoint => toWechatMapPoint({
   longitude: JIANGXI_BOUNDS.minLng + (x / JIANGXI_BOUNDS.width) * (JIANGXI_BOUNDS.maxLng - JIANGXI_BOUNDS.minLng),
   latitude: JIANGXI_BOUNDS.maxLat - (y / JIANGXI_BOUNDS.height) * (JIANGXI_BOUNDS.maxLat - JIANGXI_BOUNDS.minLat)
 })

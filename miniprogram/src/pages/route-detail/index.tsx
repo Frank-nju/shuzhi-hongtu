@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Taro, { useLoad, useShareAppMessage } from '@tarojs/taro'
 import { Button, Canvas, Progress, Text, View } from '@tarojs/components'
 import { dateAt, travelModes, type Plan, type Spot } from '@shared/domain'
+import ActionPill from '../../components/action-pill'
 import RouteMap from '../../components/route-map'
 import {
   getActiveRoute,
@@ -12,6 +13,7 @@ import {
   toggleCompletedSpot
 } from '../../services/route-storage'
 import { openExternalLink } from '../../utils/external-link'
+import { spotToWechatMapPoint } from '../../utils/map-coordinates'
 import { miniPlanPath, resolvePlanFromParams } from '../../utils/route-link'
 import {
   formatDuration,
@@ -32,9 +34,10 @@ const dayLabel = (startDate: string, offset: number) => {
 }
 
 const openSpotLocation = (spot: Spot) => {
+  const point = spotToWechatMapPoint(spot)
   Taro.openLocation({
-    latitude: spot.lat,
-    longitude: spot.lng,
+    latitude: point.latitude,
+    longitude: point.longitude,
     name: spot.name,
     address: `${spot.region} · ${spot.county}`,
     scale: 16
@@ -277,19 +280,20 @@ export default function RouteDetailPage () {
                   <View className={`execution-stop ${completed ? 'execution-stop-complete' : ''}`} key={spot.id}>
                     <Button className='tap-button completion-button' onClick={() => toggleSpot(spot.id)}>{completed ? '✓' : stopIndex + 1}</Button>
                     <View className='execution-stop-copy'>
-                      <Text>{spot.name}</Text>
-                      <Text>{spot.region} · {spot.county} · 建议 {spot.minutes} 分钟</Text>
-                      <Text>{spot.intro}</Text>
+                      <Text className='stop-name'>{spot.name}</Text>
+                      <Text className='stop-meta'>{spot.region} · {spot.county} · 建议 {spot.minutes} 分钟</Text>
+                      <Text className='stop-intro'>{spot.intro}</Text>
                       <View className='edit-actions'>
-                        <Button className='tap-button' disabled={routeIndex === 0} onClick={() => applyEditedPlan(moveRouteSpot(plan, routeIndex, -1), '已上移点位')}>上移</Button>
-                        <Button className='tap-button' disabled={routeIndex === plan.spots.length - 1} onClick={() => applyEditedPlan(moveRouteSpot(plan, routeIndex, 1), '已下移点位')}>下移</Button>
-                        {!spot.core && <Button className='tap-button' onClick={() => applyEditedPlan(replaceRouteSpot(plan, routeIndex), '已替换同区域点位')}>替换</Button>}
-                        {!spot.core && <Button className='tap-button edit-danger' onClick={() => applyEditedPlan(removeRouteSpot(plan, routeIndex), '已删除点位')}>删除</Button>}
+                        <ActionPill className='route-edit-action' compact disabled={routeIndex === 0} onClick={() => applyEditedPlan(moveRouteSpot(plan, routeIndex, -1), '已上移点位')}>上移</ActionPill>
+                        <ActionPill className='route-edit-action' compact disabled={routeIndex === plan.spots.length - 1} onClick={() => applyEditedPlan(moveRouteSpot(plan, routeIndex, 1), '已下移点位')}>下移</ActionPill>
+                        <ActionPill className='route-edit-action' compact variant='primary' disabled={spot.core} onClick={() => applyEditedPlan(replaceRouteSpot(plan, routeIndex), '已替换同区域点位')}>替换</ActionPill>
+                        <ActionPill className='route-edit-action' compact variant='danger' disabled={spot.core} onClick={() => applyEditedPlan(removeRouteSpot(plan, routeIndex), '已删除点位')}>删除</ActionPill>
                       </View>
-                    </View>
-                    <View className='stop-side-actions'>
-                      <Button className='tap-button map-button' onClick={() => openSpotLocation(spot)}>地图</Button>
-                      <Button className='tap-button detail-button' onClick={() => Taro.navigateTo({ url: `/pages/landmark-detail/index?spotId=${spot.id}` })}>详情</Button>
+                      {spot.core && <Text className='core-lock-note'>核心节点为保证路线叙事完整，不支持替换或删除</Text>}
+                      <View className='spot-quick-actions'>
+                        <ActionPill className='spot-quick-action' variant='tonal' onClick={() => openSpotLocation(spot)}>地图导航</ActionPill>
+                        <ActionPill className='spot-quick-action' variant='primary' onClick={() => openSpotDetails(spot)}>查看详情</ActionPill>
+                      </View>
                     </View>
                   </View>
                 )

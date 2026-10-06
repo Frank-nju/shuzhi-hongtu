@@ -74,7 +74,7 @@ export default function RoutesPage () {
             <Text>{historyStage.intro}</Text>
             <View><Text>{historyStage.period}</Text><Text>{historyStage.spotIds.length} 个专题点位</Text></View>
           </View>
-          <Button className='tap-button' onClick={() => Taro.navigateTo({ url: `/pages/history/index?stage=${historyStage.id}` })}>返回专题 →</Button>
+          <Button className='tap-button history-return-button' onClick={() => Taro.navigateTo({ url: `/pages/history/index?stage=${historyStage.id}` })}>返回专题 →</Button>
         </View>
       )}
 

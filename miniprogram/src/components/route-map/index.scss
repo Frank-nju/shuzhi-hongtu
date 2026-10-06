@@ -1,17 +1,24 @@
 .route-map-shell {
   overflow: hidden;
-  color: #2d211d;
-  background: #fffaf1;
-  box-shadow: 0 16rpx 42rpx rgba(72, 39, 28, 0.1);
+  color: #1b1716;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.13);
+  border-radius: 36rpx;
+  box-shadow: 0 24rpx 62rpx rgba(100, 32, 20, 0.12);
+  -webkit-backdrop-filter: blur(16rpx) saturate(145%);
+  backdrop-filter: blur(16rpx) saturate(145%);
 }
 
 .route-map-head {
-  padding: 24rpx 28rpx;
+  padding: 26rpx 28rpx 24rpx;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  color: #fff8eb;
-  background: #2c211e;
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.1), transparent 46%),
+    rgba(255, 255, 255, 0.84);
+  border-bottom: 1rpx solid rgba(218, 41, 28, 0.11);
 }
 
 .route-map-head view text {
@@ -19,21 +26,28 @@
 }
 
 .route-map-head view text:first-child {
-  color: #d6a45b;
-  font-size: 17rpx;
+  color: #da291c;
+  font-size: 18rpx;
+  font-weight: 700;
   letter-spacing: 3rpx;
 }
 
 .route-map-head view text:last-child {
-  margin-top: 7rpx;
+  margin-top: 8rpx;
+  color: #1b1716;
   font-family: "Songti SC", STSong, serif;
-  font-size: 29rpx;
-  font-weight: 700;
+  font-size: 30rpx;
+  font-weight: 900;
 }
 
 .route-map-head > text {
-  color: rgba(255, 248, 235, 0.62);
+  padding: 8rpx 14rpx;
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.07);
+  border: 1rpx solid rgba(218, 41, 28, 0.12);
+  border-radius: 999rpx;
   font-size: 19rpx;
+  font-weight: 600;
 }
 
 .route-map {
@@ -51,13 +65,16 @@
   display: flex;
   justify-content: space-between;
   gap: 18rpx;
-  color: #fff8eb;
-  background: #67151b;
-  font-size: 17rpx;
+  color: #6d5751;
+  background: linear-gradient(90deg, rgba(218, 41, 28, 0.075), rgba(255, 255, 255, 0.82));
+  border-top: 1rpx solid rgba(218, 41, 28, 0.1);
+  border-bottom: 1rpx solid rgba(218, 41, 28, 0.1);
+  font-size: 18rpx;
 }
 
 .route-map-coverage text:first-child {
-  color: #d6a45b;
+  color: #da291c;
+  font-weight: 700;
 }
 
 .route-map-coverage text:last-child {
@@ -65,24 +82,25 @@
 }
 
 .route-map-legend {
-  padding: 22rpx 26rpx 26rpx;
+  padding: 24rpx 24rpx 26rpx;
+  background: rgba(255, 253, 251, 0.8);
 }
 
 .route-map-legend-head {
   width: 100%;
-  margin-bottom: 8rpx;
-  padding-bottom: 16rpx;
+  margin-bottom: 12rpx;
+  padding: 0 2rpx 18rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #851f25;
-  border-bottom: 1rpx solid #e0d0bc;
-  font-size: 20rpx;
+  color: #a71911;
+  border-bottom: 1rpx solid rgba(218, 41, 28, 0.13);
+  font-size: 21rpx;
   font-weight: 700;
 }
 
 .route-map-legend-head text:last-child {
-  color: #9a877b;
+  color: #8b756e;
   font-size: 19rpx;
   font-weight: 400;
 }
@@ -95,33 +113,37 @@
 .route-map-legend-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 14rpx 12rpx;
+  gap: 12rpx;
   padding: 4rpx 0 18rpx;
 }
 
 .route-map-legend-item {
   width: calc(50% - 6rpx);
-  min-height: 76rpx;
-  padding: 8rpx 0;
+  min-height: 88rpx;
+  padding: 12rpx;
   display: flex;
   align-items: flex-start;
   gap: 12rpx;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 246, 240, 0.62));
+  border: 1rpx solid rgba(218, 41, 28, 0.085);
+  border-radius: 20rpx;
 }
 
 .route-map-legend-index {
-  width: 38rpx;
-  height: 38rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-top: 2rpx;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff8eb;
-  background: #851f25;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
   border-radius: 50%;
-  font-family: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 18rpx;
   font-variant-numeric: tabular-nums;
+  box-shadow: 0 6rpx 14rpx rgba(218, 41, 28, 0.2);
 }
 
 .route-map-legend-copy {
@@ -135,7 +157,7 @@
 }
 
 .route-map-legend-name {
-  color: #4f3d36;
+  color: #403330;
   font-size: 23rpx;
   font-weight: 600;
   line-height: 1.45;
@@ -144,7 +166,7 @@
 
 .route-map-legend-county {
   margin-top: 5rpx;
-  color: #947d70;
+  color: #8c756e;
   font-size: 19rpx;
   line-height: 1.4;
 }
@@ -152,17 +174,18 @@
 .route-map-legend-hint {
   display: block;
   padding-top: 16rpx;
-  color: #851f25;
-  border-top: 1rpx solid #e0d0bc;
+  color: #a71911;
+  border-top: 1rpx solid rgba(218, 41, 28, 0.13);
   font-size: 19rpx;
+  font-weight: 500;
   text-align: center;
 }
 
 .route-map-more {
   display: block;
-  margin-top: 14rpx;
   width: 100%;
-  color: #9a877b;
+  margin-top: 14rpx;
+  color: #8b756e;
   font-size: 18rpx;
   line-height: 1.6;
 }

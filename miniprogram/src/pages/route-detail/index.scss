@@ -398,29 +398,29 @@
   flex: 1;
 }
 
-.execution-stop-copy text {
+.execution-stop-copy > text {
   display: block;
 }
 
-.execution-stop-copy text:first-child {
+.stop-name {
   font-family: "Songti SC", STSong, serif;
   font-size: 27rpx;
   font-weight: 700;
   line-height: 1.45;
 }
 
-.execution-stop-complete .execution-stop-copy text:first-child {
+.execution-stop-complete .stop-name {
   color: #8e7c71;
   text-decoration: line-through;
 }
 
-.execution-stop-copy text:nth-child(2) {
+.stop-meta {
   margin-top: 7rpx;
   color: #9a877b;
   font-size: 18rpx;
 }
 
-.execution-stop-copy text:nth-child(3) {
+.stop-intro {
   margin-top: 14rpx;
   color: #75635a;
   font-size: 21rpx;
@@ -428,54 +428,32 @@
 }
 
 .edit-actions {
+  margin-top: 22rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12rpx 0;
+}
+
+.route-edit-action,
+.spot-quick-action {
+  width: 48%;
+  flex: 0 0 48%;
+}
+
+.core-lock-note {
+  margin-top: 14rpx;
+  color: #9a6d66;
+  font-size: 18rpx;
+  line-height: 1.5;
+}
+
+.spot-quick-actions {
   margin-top: 18rpx;
   display: flex;
   flex-wrap: wrap;
-  gap: 8rpx;
-}
-
-.edit-actions button {
-  height: 50rpx;
-  padding: 0 13rpx;
-  color: #6d574d;
-  background: #eee2d1;
-  border: 1rpx solid #d1bea7;
-  font-size: 17rpx;
-}
-
-.edit-actions button[disabled] {
-  color: #b7a79d;
-  opacity: 0.55;
-}
-
-.edit-actions .edit-danger {
-  color: #851f25;
-}
-
-.stop-side-actions {
-  width: 82rpx;
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8rpx;
-}
-
-.map-button {
-  width: 82rpx;
-  height: 54rpx;
-  flex: 0 0 auto;
-  color: #851f25;
-  background: transparent;
-  border: 1rpx solid #c7ac91;
-  font-size: 19rpx;
-}
-
-.detail-button {
-  width: 82rpx;
-  height: 54rpx;
-  color: #fff8eb;
-  background: #75171d;
-  font-size: 19rpx;
+  justify-content: space-between;
+  gap: 12rpx 0;
 }
 
 .route-background {
@@ -634,4 +612,192 @@
   background: #d9ae6f;
   font-size: 25rpx;
   font-weight: 600;
+}
+
+/* Ferrari glass system */
+.route-detail-page {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(218, 41, 28, 0.08), transparent 27%),
+    linear-gradient(180deg, #fffaf7, #ffffff 42%, #f9f2ee);
+}
+
+.route-detail-hero {
+  margin: 20rpx 20rpx 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 84% 14%, rgba(255, 216, 116, 0.2), transparent 28%),
+    linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 44rpx;
+  box-shadow: 0 28rpx 72rpx rgba(126, 28, 18, 0.18);
+}
+
+.route-detail-meta,
+.route-detail-angle {
+  color: #ffe7a2;
+  font-weight: 700;
+}
+
+.route-detail-title {
+  font-weight: 900;
+}
+
+.route-detail-reason,
+.route-detail-facts view text:last-child {
+  color: rgba(255, 246, 232, 0.84);
+}
+
+.route-detail-facts {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.route-detail-facts view + view {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.route-detail-facts view text:first-child {
+  color: #ffffff;
+}
+
+.execution-card,
+.route-dimensions,
+.travel-board,
+.route-services,
+.route-day-card,
+.route-background {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.07), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.12);
+  border-radius: 34rpx;
+  box-shadow: 0 20rpx 52rpx rgba(100, 32, 20, 0.1);
+  backdrop-filter: blur(16rpx) saturate(145%);
+}
+
+.execution-title > text,
+.route-block-title text:first-child,
+.route-dimension-row > text:last-child,
+.travel-stats text:first-child,
+.travel-segment text:first-child,
+.service-link > text {
+  color: #da291c;
+}
+
+.route-block-title text:last-child,
+.execution-title view text:first-child {
+  color: #1b1716;
+  font-weight: 900;
+}
+
+.route-dimension-row > view,
+.saved-progress-bar {
+  background: rgba(218, 41, 28, 0.08);
+  border-radius: 999rpx;
+}
+
+.route-dimension-row > view > view {
+  background: linear-gradient(90deg, #ff5a4f, #da291c, #a71911);
+  border-radius: 999rpx;
+}
+
+.travel-board-head,
+.travel-leg,
+.service-column + .service-column,
+.execution-stop {
+  border-color: rgba(218, 41, 28, 0.11);
+}
+
+.travel-stats view,
+.travel-segment,
+.service-link {
+  background: rgba(218, 41, 28, 0.05);
+  border: 1rpx solid rgba(218, 41, 28, 0.09);
+  border-radius: 20rpx;
+}
+
+.travel-leg > text,
+.completion-button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  box-shadow: 0 8rpx 18rpx rgba(218, 41, 28, 0.18);
+}
+
+.route-day-head {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-radius: 32rpx 32rpx 0 0;
+}
+
+.route-day-head > view:first-child,
+.route-day-head > view:last-child text:last-child {
+  color: #ffffff;
+}
+
+.completion-button {
+  border-radius: 50%;
+}
+
+.execution-stop-complete .completion-button {
+  color: #a71911;
+  background: #ffffff;
+  border: 1rpx solid rgba(218, 41, 28, 0.22);
+}
+
+.route-background {
+  border-left: 1rpx solid rgba(218, 41, 28, 0.12);
+}
+
+.route-background text:first-child {
+  color: #da291c;
+}
+
+.route-background text:last-child {
+  color: #6d5d58;
+}
+
+.service-link {
+  color: #1b1716;
+}
+
+.route-save,
+.route-share,
+.route-poster {
+  border-radius: 999rpx;
+}
+
+.route-save,
+.route-poster {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-bottom: 0;
+  box-shadow: 0 14rpx 32rpx rgba(218, 41, 28, 0.2);
+}
+
+.route-saved {
+  color: #78615a;
+  background: #f2e8e4;
+}
+
+.route-share {
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.05);
+  border-color: rgba(218, 41, 28, 0.18);
+}
+
+.route-missing {
+  margin: 20rpx;
+  color: #ffffff;
+  background: linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 40rpx;
+}
+
+.route-missing > text:nth-child(2) {
+  color: rgba(255, 246, 232, 0.84);
+}
+
+.missing-action {
+  color: #a71911;
+  background: #ffffff;
+  border-radius: 999rpx;
 }

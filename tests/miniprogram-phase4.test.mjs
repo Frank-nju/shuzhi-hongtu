@@ -101,9 +101,23 @@ test("shared mini-program route links recover the same generated plan", async ()
   const routePath = links.miniPlanPath(plan);
   const url = new URL(`https://mini.local${routePath}`);
   const recovered = links.resolvePlanFromParams(Object.fromEntries(url.searchParams));
+  const rawParams = Object.fromEntries(
+    routePath.split("?")[1].split("&").map((entry) => {
+      const [key, ...value] = entry.split("=");
+      return [key, value.join("=")];
+    }),
+  );
+  const twiceEncodedParams = Object.fromEntries(
+    Object.entries(rawParams).map(([key, value]) => [key, encodeURIComponent(value)]),
+  );
+  const recoveredFromRawParams = links.resolvePlanFromParams(rawParams);
+  const recoveredFromTwiceEncodedParams = links.resolvePlanFromParams(twiceEncodedParams);
 
   assert.match(routePath, /^\/pages\/route-detail\/index\?/);
   assert.equal(recovered?.id, plan.id);
+  assert.deepEqual(recoveredFromRawParams?.criteria, plan.criteria);
+  assert.deepEqual(recoveredFromTwiceEncodedParams?.criteria, plan.criteria);
+  assert.ok(recoveredFromRawParams?.dimensions.every((item) => !/%(?:25)?[\dA-F]{2}/i.test(item.label)));
 });
 
 test("phase four registers saved routes and route detail pages", () => {

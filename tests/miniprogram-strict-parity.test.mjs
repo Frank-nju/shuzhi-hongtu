@@ -137,7 +137,7 @@ test("mini map markers use restrained numbered labels instead of landmark photos
   assert.match(routeMap, /iconPath:\s*['"]\/map\/marker-anchor\.png['"]/);
   assert.match(routeMap, /label:\s*\{/);
   assert.match(routeMap, /content:\s*String\(sourceIndex \+ 1\)/);
-  assert.match(routeMap, /bgColor:\s*['"]#851f25['"]/);
+  assert.match(routeMap, /bgColor:\s*['"]#da291c['"]/);
 });
 
 test("overview map renders a complete legend with stable point numbering", () => {

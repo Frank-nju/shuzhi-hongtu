@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro'
-import { Button, Image, ScrollView, Text, View } from '@tarojs/components'
+import { Button, ScrollView, Text, View } from '@tarojs/components'
 import { generatePlans, plannerDefaults, plannerQuery, regions, spots } from '@shared/domain'
+import ActionPill from '../../components/action-pill'
+import CloudImage from '../../components/cloud-image'
 import RouteMap from '../../components/route-map'
 import './index.scss'
 
@@ -40,18 +42,20 @@ export default function Index () {
           <Text className='hero-star'>★</Text>
         </View>
 
-        <View className='hero-copy'>
-          <View className='brand-seal'><Text>智</Text></View>
-          <Text className='hero-kicker'>赣鄱红途 · 循迹而行</Text>
-          <Text className='hero-title'>让革命史诗{`\n`}跃然掌中</Text>
-          <Text className='hero-description'>从 44 处红色地标出发，结合时间、主题与出行方式，生成真正走得通、读得懂的江西路线。</Text>
-        </View>
+        <View className='hero-glass'>
+          <View className='hero-copy'>
+            <View className='brand-seal'><Text>智</Text></View>
+            <Text className='hero-kicker'>赣鄱红途 · 循迹而行</Text>
+            <Text className='hero-title'>让革命史诗{`\n`}跃然掌中</Text>
+            <Text className='hero-description'>从 44 处红色地标出发，结合时间、主题与出行方式，生成真正走得通、读得懂的江西路线。</Text>
+          </View>
 
-        <View className='hero-actions'>
-          <Button className='tap-button primary-action' onClick={() => switchTab('/pages/planner/index')}>
-            <Text>生成我的路线</Text><Text>→</Text>
-          </Button>
-          <Button className='tap-button text-action' onClick={() => switchTab('/pages/landmarks/index')}>先看看点位</Button>
+          <View className='hero-actions'>
+            <Button className='tap-button primary-action' onClick={() => switchTab('/pages/planner/index')}>
+              <Text>生成我的路线</Text><Text>→</Text>
+            </Button>
+            <Button className='tap-button text-action' onClick={() => switchTab('/pages/landmarks/index')}>先看看点位</Button>
+          </View>
         </View>
       </View>
 
@@ -122,7 +126,7 @@ export default function Index () {
               <View className='landmark-column' key={`column-${columnIndex}`}>
                 {column.map((spot, rowIndex) => (
                   <View className='landmark-card' key={spot.id} onClick={() => openSpotDetails(spot.id)}>
-                    <Image className='landmark-image' src={spot.image} mode='aspectFill' lazyLoad />
+                    <CloudImage assetDirectory='landmarks' className='landmark-image' src={spot.image} mode='aspectFill' lazyLoad />
                     <View className='landmark-card-copy'>
                       <Text className='landmark-index'>{String(columnIndex * 2 + rowIndex + 1).padStart(2, '0')}</Text>
                       <View>
@@ -145,8 +149,8 @@ export default function Index () {
           <Text>时间可行</Text><Text>内容匹配</Text><Text>历史校验</Text><Text>路线去重</Text>
         </View>
         <View className='method-actions'>
-          <Button className='tap-button' onClick={() => Taro.navigateTo({ url: '/pages/history/index' })}>阅读历史专题</Button>
-          <Button className='tap-button' onClick={() => Taro.navigateTo({ url: '/pages/methodology/index' })}>查看匹配方法</Button>
+          <ActionPill className='method-action' variant='primary' onClick={() => Taro.navigateTo({ url: '/pages/history/index' })}>阅读历史专题</ActionPill>
+          <ActionPill className='method-action' variant='tonal' onClick={() => Taro.navigateTo({ url: '/pages/methodology/index' })}>查看匹配方法</ActionPill>
         </View>
       </View>
     </View>

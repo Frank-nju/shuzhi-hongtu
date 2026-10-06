@@ -1,0 +1,82 @@
+.action-pill {
+  min-height: 88rpx;
+  margin: 0;
+  padding: 0 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.055);
+  border: 1rpx solid rgba(218, 41, 28, 0.16);
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5rpx;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: transform 120ms ease, opacity 120ms ease, box-shadow 120ms ease;
+}
+
+.action-pill::after {
+  border: 0;
+}
+
+.action-pill text {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.action-pill-compact {
+  min-height: 88rpx;
+  padding: 0 20rpx;
+  font-size: 21rpx;
+}
+
+.action-pill-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff5a4f 0%, #da291c 58%, #a71911 100%);
+  border-color: transparent;
+  box-shadow: 0 12rpx 26rpx rgba(218, 41, 28, 0.2);
+}
+
+.action-pill-tonal {
+  color: #a71911;
+  background: linear-gradient(145deg, rgba(255, 241, 237, 0.98), rgba(250, 222, 216, 0.72));
+  border-color: rgba(218, 41, 28, 0.13);
+}
+
+.action-pill-outline {
+  color: #7f211b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(218, 41, 28, 0.22);
+}
+
+.action-pill-danger {
+  color: #b42318;
+  background: rgba(218, 41, 28, 0.045);
+  border-color: rgba(218, 41, 28, 0.28);
+}
+
+.action-pill-disabled,
+.action-pill[disabled] {
+  color: #a99791;
+  background: rgba(128, 97, 90, 0.055);
+  border-color: rgba(128, 97, 90, 0.12);
+  box-shadow: none;
+  opacity: 0.56;
+}
+
+.action-pill-pressed {
+  opacity: 0.84;
+  transform: scale(0.975);
+  box-shadow: none;
+}

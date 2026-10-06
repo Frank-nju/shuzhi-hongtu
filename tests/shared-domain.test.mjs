@@ -110,6 +110,30 @@ test("shared criteria parser applies safe boundary defaults", async () => {
   assert.match(criteria.startDate, /^\d{4}-\d{2}-\d{2}$/);
 });
 
+test("shared criteria parser decodes mini-program query values without mojibake", async () => {
+  const { parsePlannerCriteria } = await loadDomain();
+  const expected = {
+    county: "于都县",
+    startDate: "2026-10-01",
+    days: 2,
+    theme1: "长征文化",
+    theme2: "群众支前",
+    experience: "现场观察",
+    purpose: "社会实践",
+    travelMode: "self",
+  };
+  const encoded = Object.fromEntries(
+    Object.entries(expected).map(([key, value]) => [key, encodeURIComponent(String(value))]),
+  );
+  const twiceEncoded = Object.fromEntries(
+    Object.entries(encoded).map(([key, value]) => [key, encodeURIComponent(value)]),
+  );
+
+  assert.deepEqual(parsePlannerCriteria(encoded), expected);
+  assert.deepEqual(parsePlannerCriteria(twiceEncoded), expected);
+  assert.doesNotThrow(() => parsePlannerCriteria({ county: "%E4%A" }));
+});
+
 test("shared travel engine returns usable road and transit results", async () => {
   const { spots, travelEngine } = await loadDomain();
   const jinggangshan = spots.find((spot) => spot.id === "J01");

@@ -17,3 +17,75 @@
 .methodology-boundary text:last-child { margin-top: 16rpx; color: rgba(255,248,235,.7); font-size: 21rpx; line-height: 1.75; }
 .methodology-action { height: 88rpx; margin: 0 28rpx 24rpx; padding: 0 26rpx; display: flex; align-items: center; justify-content: space-between; color: #fff8eb; background: #75171d; font-size: 24rpx; font-weight: 700; }
 .methodology-action text { color: #d9ae6f; }
+
+/* Ferrari glass system */
+.methodology-page {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(218, 41, 28, 0.08), transparent 27%),
+    linear-gradient(180deg, #fffaf7, #ffffff 42%, #f9f2ee);
+}
+
+.methodology-hero {
+  margin: 20rpx 20rpx 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(255, 216, 116, 0.2), transparent 28%),
+    linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 44rpx;
+  box-shadow: 0 28rpx 72rpx rgba(126, 28, 18, 0.18);
+}
+
+.methodology-hero text:first-child {
+  color: #ffe7a2;
+  font-weight: 700;
+}
+
+.methodology-hero text:nth-child(2) {
+  font-weight: 900;
+}
+
+.methodology-hero text:last-child {
+  color: rgba(255, 246, 232, 0.86);
+}
+
+.methodology-step,
+.methodology-boundary {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.07), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.12);
+  border-radius: 30rpx;
+  box-shadow: 0 18rpx 46rpx rgba(100, 32, 20, 0.1);
+  backdrop-filter: blur(16rpx) saturate(145%);
+}
+
+.methodology-step > text,
+.methodology-boundary text:first-child {
+  color: #da291c;
+}
+
+.methodology-step > view text:first-child,
+.methodology-boundary text:first-child {
+  font-weight: 900;
+}
+
+.methodology-boundary {
+  border-left: 1rpx solid rgba(218, 41, 28, 0.12);
+}
+
+.methodology-boundary text:last-child {
+  color: #6d5d58;
+}
+
+.methodology-action {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-radius: 999rpx;
+  box-shadow: 0 14rpx 32rpx rgba(218, 41, 28, 0.2);
+}
+
+.methodology-action text {
+  color: rgba(255, 255, 255, 0.76);
+}

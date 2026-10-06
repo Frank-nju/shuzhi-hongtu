@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import Taro from '@tarojs/taro'
-import { Button, Image, Input, ScrollView, Text, View } from '@tarojs/components'
+import { Button, Input, ScrollView, Text, View } from '@tarojs/components'
 import { regions, spots, type Spot } from '@shared/domain'
+import CloudImage from '../../components/cloud-image'
 import { filterSpots, leadingThemes } from '../../utils/catalogue'
+import { spotToWechatMapPoint } from '../../utils/map-coordinates'
 import './index.scss'
 
 export default function LandmarksPage () {
@@ -19,9 +21,10 @@ export default function LandmarksPage () {
   }
 
   const openLocation = (spot: Spot) => {
+    const point = spotToWechatMapPoint(spot)
     Taro.openLocation({
-      latitude: spot.lat,
-      longitude: spot.lng,
+      latitude: point.latitude,
+      longitude: point.longitude,
       name: spot.name,
       address: `${spot.region} · ${spot.county}`,
       scale: 16
@@ -79,7 +82,7 @@ export default function LandmarksPage () {
           return (
             <View className={`spot-card ${isOpen ? 'spot-card-open' : ''}`} key={spot.id}>
               <View className='spot-card-main' hoverClass='spot-card-active' onClick={() => toggleSpot(spot)}>
-                <Image className='spot-thumb' src={spot.image} mode='aspectFill' lazyLoad />
+                <CloudImage assetDirectory='landmarks' className='spot-thumb' src={spot.image} mode='aspectFill' lazyLoad />
                 <View className='spot-copy'>
                   <View className='spot-meta'>
                     <Text>{String(index + 1).padStart(2, '0')}</Text>

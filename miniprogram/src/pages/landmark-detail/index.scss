@@ -19,7 +19,7 @@
 .visit-list > view text:first-child { width: 126rpx; flex: 0 0 auto; color: #9a877b; font-size: 20rpx; }
 .visit-list > view text:last-child { flex: 1; color: #3a2a25; font-size: 21rpx; line-height: 1.6; }
 .visit-actions { margin-top: 26rpx; display: flex; flex-wrap: wrap; gap: 12rpx; }
-.visit-actions button { height: 72rpx; padding: 0 20rpx; font-size: 20rpx; }
+.visit-action { height: 72rpx; padding: 0 20rpx; font-size: 20rpx; }
 .visit-primary { color: #fff8eb; background: #75171d; }
 .visit-secondary { color: #75171d; background: #eee2d1; border: 1rpx solid #c7ac91; }
 .detail-map-wrap { margin: 28rpx; }
@@ -37,4 +37,120 @@
 .detail-disclaimer { display: block; padding: 0 42rpx 24rpx; color: #9a877b; font-size: 18rpx; line-height: 1.6; text-align: center; }
 .detail-missing { padding: 150rpx 40rpx; color: #fff8eb; background: #2c211e; }
 .detail-missing text { display: block; font-size: 36rpx; }
-.detail-missing button { margin-top: 34rpx; height: 80rpx; color: #5b1117; background: #d9ae6f; }
+.detail-missing-action { margin-top: 34rpx; height: 80rpx; color: #5b1117; background: #d9ae6f; }
+
+/* Ferrari glass system */
+.landmark-detail-page {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 10% 4%, rgba(218, 41, 28, 0.08), transparent 27%),
+    linear-gradient(180deg, #fffaf7, #ffffff 42%, #f9f2ee);
+}
+
+.detail-cover {
+  margin: 20rpx 20rpx 0;
+  overflow: hidden;
+  color: #ffffff;
+  background: #8f140c;
+  border-radius: 44rpx;
+  box-shadow: 0 28rpx 72rpx rgba(126, 28, 18, 0.18);
+}
+
+.detail-cover::after {
+  background: linear-gradient(180deg, rgba(112, 11, 6, 0.04) 10%, rgba(112, 11, 6, 0.92) 100%);
+}
+
+.detail-cover-copy > text:first-child {
+  color: #ffe7a2;
+  font-weight: 700;
+}
+
+.detail-cover-copy > text:nth-child(2) {
+  font-weight: 900;
+}
+
+.detail-cover-copy > text:nth-child(3) {
+  color: rgba(255, 246, 232, 0.84);
+}
+
+.detail-cover-copy > view text {
+  color: #fff6e8;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.18);
+  border-radius: 999rpx;
+}
+
+.visit-panel,
+.dimension-panel,
+.related-panel {
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.07), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.12);
+  border-radius: 34rpx;
+  box-shadow: 0 20rpx 52rpx rgba(100, 32, 20, 0.1);
+  backdrop-filter: blur(16rpx) saturate(145%);
+}
+
+.detail-section-title text:first-child,
+.dimension-row > text:last-child,
+.related-card > text {
+  color: #da291c;
+}
+
+.detail-section-title text:last-child {
+  color: #1b1716;
+  font-weight: 900;
+}
+
+.visit-list,
+.visit-list > view {
+  border-color: rgba(218, 41, 28, 0.11);
+}
+
+.visit-primary,
+.visit-secondary {
+  border-radius: 999rpx;
+}
+
+.visit-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  box-shadow: 0 12rpx 28rpx rgba(218, 41, 28, 0.2);
+}
+
+.visit-secondary {
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.055);
+  border-color: rgba(218, 41, 28, 0.18);
+}
+
+.dimension-row > view {
+  background: rgba(218, 41, 28, 0.08);
+  border-radius: 999rpx;
+}
+
+.dimension-row > view > view {
+  background: linear-gradient(90deg, #ff5a4f, #da291c, #a71911);
+  border-radius: 999rpx;
+}
+
+.related-card {
+  overflow: hidden;
+  background: rgba(218, 41, 28, 0.045);
+  border: 1rpx solid rgba(218, 41, 28, 0.09);
+  border-radius: 24rpx;
+}
+
+.detail-missing {
+  margin: 20rpx;
+  color: #ffffff;
+  background: linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 40rpx;
+}
+
+.detail-missing-action {
+  color: #a71911;
+  background: #ffffff;
+  border-radius: 999rpx;
+}

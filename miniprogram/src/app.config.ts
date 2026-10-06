@@ -12,17 +12,17 @@ export default defineAppConfig({
   ],
   lazyCodeLoading: 'requiredComponents',
   window: {
-    backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#6f171d',
+    backgroundTextStyle: 'dark',
+    navigationBarBackgroundColor: '#fffaf7',
     navigationBarTitleText: '数智-红途',
-    navigationBarTextStyle: 'white',
-    backgroundColor: '#f5eddf'
+    navigationBarTextStyle: 'black',
+    backgroundColor: '#fffaf7'
   },
   tabBar: {
-    color: '#806f66',
-    selectedColor: '#851f25',
-    backgroundColor: '#fffaf1',
-    borderStyle: 'black',
+    color: '#78615a',
+    selectedColor: '#da291c',
+    backgroundColor: '#fffaf7',
+    borderStyle: 'white',
     list: [
       { pagePath: 'pages/index/index', text: '首页' },
       { pagePath: 'pages/planner/index', text: '规划' },

@@ -451,3 +451,145 @@
 .plan-open-button text {
   color: #d9ae6f;
 }
+
+/* Ferrari glass system */
+.planner-page {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 8% 4%, rgba(218, 41, 28, 0.08), transparent 26%),
+    linear-gradient(180deg, #fffaf7, #ffffff 42%, #f9f2ee);
+}
+
+.planner-hero {
+  margin: 20rpx 20rpx 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 80% 18%, rgba(255, 216, 116, 0.2), transparent 28%),
+    linear-gradient(140deg, #700b06, #b91810 38%, #da291c 66%, #8f140c);
+  border-radius: 44rpx;
+  box-shadow: 0 28rpx 72rpx rgba(126, 28, 18, 0.18);
+}
+
+.planner-eyebrow {
+  color: #ffe7a2;
+  font-weight: 700;
+}
+
+.planner-title {
+  font-weight: 900;
+}
+
+.planner-intro {
+  color: rgba(255, 246, 232, 0.86);
+}
+
+.planner-form,
+.plan-card,
+.result-placeholder {
+  color: #1b1716;
+  background:
+    radial-gradient(circle at 100% 0, rgba(218, 41, 28, 0.08), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 240, 0.8));
+  border: 1rpx solid rgba(218, 41, 28, 0.13);
+  border-radius: 36rpx;
+  box-shadow: 0 22rpx 58rpx rgba(100, 32, 20, 0.11);
+  backdrop-filter: blur(16rpx) saturate(145%);
+}
+
+.planner-preset-note {
+  color: #5f504b;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1rpx solid rgba(218, 41, 28, 0.13);
+  border-radius: 24rpx;
+  box-shadow: 0 16rpx 36rpx rgba(100, 32, 20, 0.1);
+}
+
+.planner-preset-note view text:first-child,
+.form-heading > text,
+.results-kicker,
+.plan-index,
+.plan-angle {
+  color: #da291c;
+}
+
+.planner-preset-note > text,
+.form-heading > view text:last-child,
+.field-note {
+  color: #8b756e;
+}
+
+.planner-field {
+  background: rgba(218, 41, 28, 0.045);
+  border: 1rpx solid rgba(218, 41, 28, 0.12);
+  border-radius: 26rpx;
+}
+
+.field-value {
+  color: #a71911;
+  border-color: rgba(218, 41, 28, 0.16);
+}
+
+.form-divider {
+  background: rgba(218, 41, 28, 0.13);
+}
+
+.plan-days,
+.plan-card-actions {
+  border-color: rgba(218, 41, 28, 0.13);
+}
+
+.generate-button,
+.plan-open-button {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+  border-radius: 999rpx;
+  box-shadow: 0 14rpx 32rpx rgba(218, 41, 28, 0.22);
+}
+
+.generate-button view text:last-child,
+.generate-button > text,
+.plan-open-button text {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.result-placeholder {
+  min-height: 270rpx;
+  border-left: 1rpx solid rgba(218, 41, 28, 0.13);
+}
+
+.result-placeholder text:first-child,
+.result-placeholder text:nth-child(2) {
+  color: #da291c;
+}
+
+.result-placeholder text:last-child,
+.plan-reason {
+  color: #6d5d58;
+}
+
+.plan-score {
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.065);
+  border-color: rgba(218, 41, 28, 0.45);
+}
+
+.day-label {
+  color: #da291c;
+}
+
+.day-stop > text {
+  color: #ffffff;
+  background: linear-gradient(135deg, #f04a3e, #da291c 58%, #a71911);
+}
+
+.plan-save-button {
+  color: #a71911;
+  background: rgba(218, 41, 28, 0.06);
+  border-color: rgba(218, 41, 28, 0.2);
+  border-radius: 999rpx;
+}
+
+.plan-saved-button {
+  color: #78615a;
+  background: #f2e8e4;
+}

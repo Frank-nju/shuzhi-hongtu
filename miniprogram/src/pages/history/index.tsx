@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import Taro, { useLoad, useShareAppMessage } from '@tarojs/taro'
-import { Button, Image, ScrollView, Text, View } from '@tarojs/components'
+import { Button, ScrollView, Text, View } from '@tarojs/components'
 import { historyStages, plannerDefaults, spots, type PlannerCriteria } from '@shared/domain'
+import CloudImage from '../../components/cloud-image'
 import RouteMap from '../../components/route-map'
 import { setPlannerPreset } from '../../services/planner-preset'
 import { openExternalLink } from '../../utils/external-link'
@@ -13,8 +14,6 @@ const stagePresets: Record<string, Partial<PlannerCriteria>> = {
   'stage-03': { county: '瑞金市', days: 3, theme1: '政权建设', theme2: '群众支前', experience: '深度讲解', purpose: '专题调研', travelMode: 'charter' },
   'stage-04': { county: '于都县', days: 3, theme1: '长征文化', theme2: '革命精神', experience: '现场观察', purpose: '思政学习', travelMode: 'charter' }
 }
-
-const historyImage = (assetPath: string) => `/history/${assetPath.split('/').pop()}`
 
 export default function HistoryPage () {
   const [activeStageId, setActiveStageId] = useState(historyStages[0].id)
@@ -76,14 +75,14 @@ export default function HistoryPage () {
       </View>
 
       <View className='history-artwork-panel'>
-        <Image src={historyImage(stage.artwork)} mode='aspectFill' lazyLoad />
+        <CloudImage assetDirectory='history' src={stage.artwork} mode='aspectFill' lazyLoad />
         <View><Text>专题艺术图</Text><Text>{stage.artworkCaption}</Text><Text>{stage.mapStyle} · {stage.representative}</Text></View>
       </View>
 
       <View className='history-map-wrap'>
         <View className='history-relative-map'>
           <View><Text>RELATIVE LOCATION</Text><Text>点位相对位置图</Text></View>
-          <Image src={historyImage(stage.mapImage)} mode='widthFix' lazyLoad />
+          <CloudImage assetDirectory='history' src={stage.mapImage} mode='widthFix' lazyLoad />
         </View>
         <RouteMap spots={stageSpots} title={`${stage.shortTitle} · 景点位置`} onSpotTap={(spot) => openSpot(spot.id)} />
         <View className='history-map-quote'><Text>“{stage.mapQuote}”</Text><Text>{stage.mapQuoteSource}</Text></View>
@@ -105,7 +104,7 @@ export default function HistoryPage () {
         <View className='history-featured-grid'>
           {featuredSpots.map((spot) => (
             <View className='history-featured-card' key={spot.id} onClick={() => openSpot(spot.id)}>
-              <Image src={spot.image} mode='aspectFill' lazyLoad />
+              <CloudImage assetDirectory='landmarks' src={spot.image} mode='aspectFill' lazyLoad />
               <View><Text>{spot.region}</Text><Text>{spot.name}</Text><Text>查看完整参观信息 →</Text></View>
             </View>
           ))}

@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import Taro, { useLoad, useShareAppMessage } from '@tarojs/taro'
-import { Button, Image, Text, View } from '@tarojs/components'
+import { Button, Text, View } from '@tarojs/components'
 import { spotDetails, spots, type Spot } from '@shared/domain'
+import CloudImage from '../../components/cloud-image'
 import RouteMap from '../../components/route-map'
 import { openExternalLink } from '../../utils/external-link'
+import { spotToWechatMapPoint } from '../../utils/map-coordinates'
 import './index.scss'
 
 type PageParams = { spotId?: string }
@@ -27,25 +29,28 @@ export default function LandmarkDetailPage () {
     return (
       <View className='page-shell landmark-detail-page detail-missing'>
         <Text>没有找到这个点位</Text>
-        <Button className='tap-button' onClick={() => Taro.navigateBack()}>返回点位图鉴</Button>
+        <Button className='tap-button detail-missing-action' onClick={() => Taro.navigateBack()}>返回点位图鉴</Button>
       </View>
     )
   }
 
   const detail = spotDetails[spot.id]
   const relatedSpots = spots.filter((item) => item.id !== spot.id && item.region === spot.region).slice(0, 3)
-  const openLocation = () => Taro.openLocation({
-    latitude: spot.lat,
-    longitude: spot.lng,
-    name: spot.name,
-    address: detail?.address ?? `${spot.region} · ${spot.county}`,
-    scale: 16
-  }).catch(() => Taro.showToast({ title: '未能打开地图，请稍后重试', icon: 'none' }))
+  const openLocation = () => {
+    const point = spotToWechatMapPoint(spot)
+    return Taro.openLocation({
+      latitude: point.latitude,
+      longitude: point.longitude,
+      name: spot.name,
+      address: detail?.address ?? `${spot.region} · ${spot.county}`,
+      scale: 16
+    }).catch(() => Taro.showToast({ title: '未能打开地图，请稍后重试', icon: 'none' }))
+  }
 
   return (
     <View className='page-shell landmark-detail-page'>
       <View className='detail-cover'>
-        <Image src={spot.image} mode='aspectFill' />
+        <CloudImage assetDirectory='landmarks' src={spot.image} mode='aspectFill' />
         <View className='detail-cover-copy'>
           <Text>{spot.region} · {spot.county}</Text>
           <Text>{spot.name}</Text>
@@ -74,10 +79,10 @@ export default function LandmarkDetailPage () {
           </View>
         )}
         <View className='visit-actions'>
-          <Button className='tap-button visit-primary' onClick={openLocation}>打开微信地图</Button>
-          {detail?.reservationUrl && <Button className='tap-button visit-secondary' onClick={() => openExternalLink(detail.reservationUrl!, '预约入口')}>复制预约入口</Button>}
-          {detail?.officialUrl && <Button className='tap-button visit-secondary' onClick={() => openExternalLink(detail.officialUrl!, '官方信息')}>复制官方链接</Button>}
-          {detail?.sourceUrl && <Button className='tap-button visit-secondary' onClick={() => openExternalLink(detail.sourceUrl!, '资料来源')}>复制资料来源</Button>}
+          <Button className='tap-button visit-action visit-primary' onClick={openLocation}>打开微信地图</Button>
+          {detail?.reservationUrl && <Button className='tap-button visit-action visit-secondary' onClick={() => openExternalLink(detail.reservationUrl!, '预约入口')}>复制预约入口</Button>}
+          {detail?.officialUrl && <Button className='tap-button visit-action visit-secondary' onClick={() => openExternalLink(detail.officialUrl!, '官方信息')}>复制官方链接</Button>}
+          {detail?.sourceUrl && <Button className='tap-button visit-action visit-secondary' onClick={() => openExternalLink(detail.sourceUrl!, '资料来源')}>复制资料来源</Button>}
         </View>
       </View>
 
@@ -99,7 +104,7 @@ export default function LandmarkDetailPage () {
           <View className='detail-section-title'><Text>NEARBY</Text><Text>同区域点位</Text></View>
           {relatedSpots.map((item) => (
             <View className='related-card' key={item.id} onClick={() => Taro.redirectTo({ url: `/pages/landmark-detail/index?spotId=${item.id}` })}>
-              <Image src={item.image} mode='aspectFill' lazyLoad />
+              <CloudImage assetDirectory='landmarks' src={item.image} mode='aspectFill' lazyLoad />
               <View><Text>{item.county}</Text><Text>{item.name}</Text><Text>建议停留 {item.minutes} 分钟</Text></View>
               <Text>→</Text>
             </View>
